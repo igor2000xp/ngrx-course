@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   passwordVisible = false;
   passwordInput: HTMLInputElement;
 
+
+
   form: FormGroup;
 
   constructor(
@@ -32,10 +34,11 @@ export class LoginComponent implements OnInit {
       password: ['test', [Validators.required]]
     });
     this.passwordInput = elementRef.nativeElement;
+
   }
 
   ngOnInit() {
-
+    this.passwordInput.type = 'password';
   }
 
   login() {

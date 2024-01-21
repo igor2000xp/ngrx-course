@@ -13,10 +13,10 @@
 
             <mat-form-field>
 
-                <input matInput type="password"
+                <input matInput [type]="passwordInput.type"
                        placeholder="Password"
                        formControlName="password">
-                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{passwordVisible ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{!passwordVisible ? 'visibility_off' : 'visibility'}}</mat-icon>
 
 
             </mat-form-field>
