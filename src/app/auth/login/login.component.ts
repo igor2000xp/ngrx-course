@@ -16,7 +16,7 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   MAX_LENGTH_NAME = 50;
   passwordVisible = false;
-  passwordInput: HTMLInputElement;
+  passwordInpuTtype = 'password';
 
 
 
@@ -25,20 +25,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
-    private elementRef: ElementRef<HTMLInputElement>,
-
     private router: Router) {
-
     this.form = fb.nonNullable.group({
       email: ['test@angular-university.io', [Validators.required, Validators.email, Validators.maxLength(this.MAX_LENGTH_NAME)]],
       password: ['test', [Validators.required]]
     });
-    this.passwordInput = elementRef.nativeElement;
-
   }
 
   ngOnInit() {
-    this.passwordInput.type = 'password';
+
   }
 
   login() {
@@ -47,7 +42,7 @@ export class LoginComponent implements OnInit {
 
   togglePasswordVisibility(): void {
     this.passwordVisible = !this.passwordVisible;
-    this.passwordInput.type = this.passwordVisible ? 'text' : 'password';
+    this.passwordInpuTtype = this.passwordVisible ? 'text' : 'password';
   }
 
 }
