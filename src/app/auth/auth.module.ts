@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { AuthService } from "./auth.service";
 import { EffectsModule } from '@ngrx/effects';
 import { MatIconModule } from '@angular/material/icon';
+import * as fromAuth from './reducers';
 
 @NgModule({
     imports: [
@@ -20,6 +21,11 @@ import { MatIconModule } from '@angular/material/icon';
         MatButtonModule,
         MatIconModule,
         RouterModule.forChild([{ path: '', component: LoginComponent }]),
+        StoreModule.forFeature(
+            'auth',
+            fromAuth.reducers,
+            // fromAuth.authFeatureKey, fromAuth.reducers, { metaReducers: fromAuth.metaReducers }
+        ),
 
     ],
     declarations: [LoginComponent],
